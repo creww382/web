@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guru & Staff - Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="images\logo MA yatashi blue.jpg" alt="Logo Madrasah">
+                    <div class="logo-text">
+                        <h1>Madrasah Aliyah</h1>
+                        <h2>Tarbiyatushibyan Plus Keterampilan</h2>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                    <li><a href="guru.html" class="active">Guru</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Guru & Staff</h1>
+            <p>Daftar guru dan staff pengajar di Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan</p>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section class="teachers">
+        <div class="container">
+            <div class="teachers-controls">
+                <div class="search-container">
+                    <input type="text" id="teacher-search" placeholder="Cari guru berdasarkan nama...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-container">
+                    <select id="subject-filter">
+                        <option value="all">Semua Mata Pelajaran</option>
+                        <option value="pai">Pendidikan Agama Islam</option>
+                        <option value="quran">Al-Qur'an Hadis</option>
+                        <option value="akademik">Akademik</option>
+                        <option value="keterampilan">Keterampilan</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="teachers-grid" id="teachers-container">
+                <div class="teacher-card" data-subject="pai">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Ahmad Hidayat">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Drs. Ahmad Hidayat, M.Pd</h3>
+                        <p class="teacher-position">Kepala Madrasah</p>
+                        <p class="teacher-subject">Pendidikan Agama Islam</p>
+                        <div class="teacher-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="teacher-card" data-subject="pai">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Dian Kartika">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Dian Kartika, S.Pd</h3>
+                        <p class="teacher-position">Guru PAI</p>
+                        <p class="teacher-subject">Pendidikan Agama Islam</p>
+                        <div class="teacher-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="teacher-card" data-subject="quran">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Budi Santoso">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Budi Santoso, S.Si, M.Ag</h3>
+                        <p class="teacher-position">Guru Al-Qur'an Hadis</p>
+                        <p class="teacher-subject">Al-Qur'an Hadis</p>
+                        <div class="teacher-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="teacher-card" data-subject="akademik">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Citra Lestari">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Citra Lestari, S.Pd, M.Biomed</h3>
+                        <p class="teacher-position">Guru Biologi</p>
+                        <p class="teacher-subject">Biologi</p>
+                        <div class="teacher-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="teacher-card" data-subject="akademik">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Eko Prasetyo">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Eko Prasetyo, S.S</h3>
+                        <p class="teacher-position">Guru Bahasa Inggris</p>
+                        <p class="teacher-subject">Bahasa Inggris</p>
+                        <div class="teacher-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="teacher-card" data-subject="keterampilan">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Fahmi Hidayat">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Fahmi Hidayat, S.Pd</h3>
+                        <p class="teacher-position">Guru Keterampilan</p>
+                        <p class="teacher-subject">Menjahit</p>
+                        <div class="teacher-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="teacher-card" data-subject="keterampilan">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Gita Anggraeni">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Gita Anggraeni, S.E, M.M</h3>
+                        <p class="teacher-position">Guru Keterampilan</p>
+                        <p class="teacher-subject">Tata Boga</p>
+                        <div class="teacher-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="teacher-card" data-subject="akademik">
+                    <div class="teacher-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Hani Widya">
+                    </div>
+                    <div class="teacher-info">
+                        <h3>Hani Widya, S.S, M.Hum</h3>
+                        <p class="teacher-position">Guru Bahasa Indonesia</p>
+                        <p class="teacher-subject">Bahasa Indonesia</p>
+                        <div class="teacher-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tentang Kami</h3>
+                    <p>Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan berkomitmen memberikan pendidikan berbasis keislaman dan keterampilan untuk membentuk generasi Qur'ani dan terampil.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/ma.yatashi"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Tautan Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="profil.html">Profil Madrasah</a></li>
+                        <li><a href="berita.html">Berita</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="guru.html">Guru & Staff</a></li>
+                        <li><a href="kontak.html">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Informasi Kontak</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan Islam No. 45, Bandung</p>
+                    <p><i class="fas fa-phone"></i> (022) 12345678</p>
+                    <p><i class="fas fa-envelope"></i> info@tarbiyatushibyan.sch.id</p>
+                    <p><i class="fas fa-clock"></i> Senin - Jumat: 07:00 - 16:00</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Teacher search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('teacher-search');
+            const subjectFilter = document.getElementById('subject-filter');
+            const teacherCards = document.querySelectorAll('.teacher-card');
+            
+            searchInput.addEventListener('input', filterTeachers);
+            subjectFilter.addEventListener('change', filterTeachers);
+            
+            function filterTeachers() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedSubject = subjectFilter.value;
+                
+                teacherCards.forEach(card => {
+                    const name = card.querySelector('h3').textContent.toLowerCase();
+                    const subject = card.getAttribute('data-subject');
+                    
+                    const matchesSearch = name.includes(searchTerm);
+                    const matchesSubject = selectedSubject === 'all' || subject === selectedSubject;
+                    
+                    if (matchesSearch && matchesSubject) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

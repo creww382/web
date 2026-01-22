@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri - Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="https://placehold.co/50x50?text=MA" alt="Logo Madrasah">
+                    <div class="logo-text">
+                        <h1>Madrasah Aliyah</h1>
+                        <h2>Tarbiyatushibyan Plus Keterampilan</h2>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="galeri.html" class="active">Galeri</a></li>
+                    <li><a href="guru.html">Guru</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="admin/login.html">Admin</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Galeri Madrasah</h1>
+            <p>Kumpulan foto dan video kegiatan madrasah</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <div class="gallery-controls">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Semua</button>
+                    <button class="filter-btn" data-filter="kegiatan">Kegiatan</button>
+                    <button class="filter-btn" data-filter="ekskul">Ekskul</button>
+                    <button class="filter-btn" data-filter="wisuda">Wisuda</button>
+                    <button class="filter-btn" data-filter="keterampilan">Keterampilan</button>
+                </div>
+            </div>
+            
+            <div class="gallery-grid" id="gallery-container">
+                <div class="gallery-item" data-category="kegiatan">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lomba MTQ">
+                        <div class="gallery-overlay">
+                            <div class="gallery-actions">
+                                <a href="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="gallery-zoom" data-lightbox="gallery">
+                                    <i class="fas fa-search-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Lomba MTQ</h3>
+                        <p>Kegiatan MTQ Tingkat Kota</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="ekskul">
+                    <div class="gallery-img">
+                        <img src="images\kajian.jpg" alt="Tahfidz">
+                        <div class="gallery-overlay">
+                            <div class="gallery-actions">
+                                <a href="images\kajian.jpg" class="gallery-zoom" data-lightbox="gallery">
+                                    <i class="fas fa-search-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Ekstrakurikuler Tahfidz</h3>
+                        <p>Latihan Tahsin dan Tahfidz</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="wisuda">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wisuda">
+                        <div class="gallery-overlay">
+                            <div class="gallery-actions">
+                                <a href="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="gallery-zoom" data-lightbox="gallery">
+                                    <i class="fas fa-search-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Wisuda Angkatan XVIII</h3>
+                        <p>Wisuda Alumni Tahun Pelajaran 2024/2025</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="keterampilan">
+                    <div class="gallery-img">
+                        <img src="images\pkl.jpg" alt="pkl">
+                        <div class="gallery-overlay">
+                            <div class="gallery-actions">
+                                <a href="images\pkl.jpg" class="gallery-zoom" data-lightbox="gallery">
+                                    <i class="fas fa-search-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Program Keterampilan perkantoran</h3>
+                        <p>Siswa Kelas XI belajar komputer</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="ekskul">
+                    <div class="gallery-img">
+                        <img src="images\foto.jpg" alt="Paskibra">
+                        <div class="gallery-overlay">
+                            <div class="gallery-actions">
+                                <a href="images\foto.jpg" class="gallery-zoom" data-lightbox="gallery">
+                                    <i class="fas fa-search-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Ekskul Paskibra</h3>
+                        <p>Latihan Pengibar Bendera</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="keterampilan">
+                    <div class="gallery-img">
+                        <img src="images\keguruan.jpg" alt="Tata Boga">
+                        <div class="gallery-overlay">
+                            <div class="gallery-actions">
+                                <a href="images\keguruan.jpg" class="gallery-zoom" data-lightbox="gallery">
+                                    <i class="fas fa-search-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Program Keterampilan keguruan</h3>
+                        <p>Siswa Belajar mengajar</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="kegiatan">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1521644762404-a47d0a7e7f1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pembelajaran">
+                        <div class="gallery-overlay">
+                            <div class="gallery-actions">
+                                <a href="https://images.unsplash.com/photo-1521644762404-a47d0a7e7f1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="gallery-zoom" data-lightbox="gallery">
+                                    <i class="fas fa-search-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Pembelajaran Interaktif</h3>
+                        <p>Kelas XI Belajar Kimia dengan Praktikum</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tentang Kami</h3>
+                    <p>Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan berkomitmen memberikan pendidikan berbasis keislaman dan keterampilan untuk membentuk generasi Qur'ani dan terampil.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/ma.yatashi"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Tautan Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="profil.html">Profil Madrasah</a></li>
+                        <li><a href="berita.html">Berita</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="guru.html">Guru & Staff</a></li>
+                        <li><a href="kontak.html">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Informasi Kontak</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan Islam No. 45, Bandung</p>
+                    <p><i class="fas fa-phone"></i> (022) 12345678</p>
+                    <p><i class="fas fa-envelope"></i> info@tarbiyatushibyan.sch.id</p>
+                    <p><i class="fas fa-clock"></i> Senin - Jumat: 07:00 - 16:00</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Gallery filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

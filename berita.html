@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita & Kegiatan - Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="images/logo MA yatashi blue.jpg" alt="Logo Madrasah">
+                    <div class="logo-text">
+                        <h1>Madrasah Aliyah</h1>
+                        <h2>Tarbiyatushibyan Plus Keterampilan</h2>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="berita.html" class="active">Berita</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                    <li><a href="guru.html">Guru</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="admin/login.html">Admin</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Berita & Kegiatan</h1>
+            <p>Update terbaru dari kegiatan madrasah dan dunia pendidikan</p>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <div class="container">
+            <div class="news-controls">
+                <div class="search-container">
+                    <input type="text" id="news-search" placeholder="Cari berita...">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="filter-container">
+                    <select id="category-filter">
+                        <option value="all">Semua Kategori</option>
+                        <option value="akademik">Akademik</option>
+                        <option value="ekskul">Ekskul</option>
+                        <option value="prestasi">Prestasi</option>
+                        <option value="event">Event</option>
+                        <option value="keterampilan">Keterampilan</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="news-grid" id="news-container">
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lomba MTQ">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Prestasi</div>
+                        <div class="news-date">15 Desember 2025</div>
+                        <h3>MTQ Tingkat Kota, Siswa MA Tarbiyatushibyan Meraih Juara 1</h3>
+                        <p>Siswa MA Tarbiyatushibyan meraih juara 1 dalam MTQ tingkat kota tahun 2025...</p>
+                        <a href="berita-detail.html?id=1" class="btn">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tahfidz">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Kegiatan</div>
+                        <div class="news-date">10 Desember 2025</div>
+                        <h3>Penyerahan Sertifikat Tahfidz 30 Juz</h3>
+                        <p>Sebanyak 15 siswa menerima sertifikat Tahfidz 30 Juz dari Kementerian Agama...</p>
+                        <a href="berita-detail.html?id=2" class="btn">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Keterampilan">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Keterampilan</div>
+                        <div class="news-date">5 Desember 2025</div>
+                        <h3>PKL keguruan, perkantoran,enterpeuner,otomotif untuk Siswa Kelas XI</h3>
+                        <p>Kelas XI mengikuti PKL sebagai bagian dari program keterampilan...</p>
+                        <a href="berita-detail.html?id=3" class="btn">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wisuda">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Event</div>
+                        <div class="news-date">28 November 2025</div>
+                        <h3>Wisuda Angkatan XVIII Tahun Pelajaran 2024/2025</h3>
+                        <p>MA Tarbiyatushibyan menyelenggarakan wisuda bagi 180 alumni tahun ini...</p>
+                        <a href="berita-detail.html?id=4" class="btn">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Olimpiade">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Prestasi</div>
+                        <div class="news-date">20 November 2025</div>
+                        <h3>OSN Bidang Matematika, Siswa MA Tarbiyatushibyan Meraih Medali Perak</h3>
+                        <p>Siswa kelas XII meraih medali perak dalam Olimpiade Sains Nasional bidang matematika...</p>
+                        <a href="berita-detail.html?id=5" class="btn">Baca Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1521644762404-a47d0a7e7f1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pembelajaran">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-category">Akademik</div>
+                        <div class="news-date">15 November 2025</div>
+                        <h3>Pembelajaran Berbasis Proyek untuk Meningkatkan Keterampilan Abad 21</h3>
+                        <p>MA Tarbiyatushibyan menerapkan metode pembelajaran berbasis proyek...</p>
+                        <a href="berita-detail.html?id=6" class="btn">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="prev">« Sebelumnya</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#" class="next">Berikutnya »</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tentang Kami</h3>
+                    <p>Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan berkomitmen memberikan pendidikan berbasis keislaman dan keterampilan untuk membentuk generasi Qur'ani dan terampil.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/ma.yatashi"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Tautan Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="profil.html">Profil Madrasah</a></li>
+                        <li><a href="berita.html">Berita</a></li>
+                        <li><a href="galeri.html">Galeri</a></li>
+                        <li><a href="guru.html">Guru & Staff</a></li>
+                        <li><a href="kontak.html">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Informasi Kontak</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan Islam No. 45, Bandung</p>
+                    <p><i class="fas fa-phone"></i> (022) 12345678</p>
+                    <p><i class="fas fa-envelope"></i> info@tarbiyatushibyan.sch.id</p>
+                    <p><i class="fas fa-clock"></i> Senin - Jumat: 07:00 - 16:00</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Simple search and filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('news-search');
+            const categoryFilter = document.getElementById('category-filter');
+            const newsCards = document.querySelectorAll('.news-card');
+            
+            searchInput.addEventListener('input', filterNews);
+            categoryFilter.addEventListener('change', filterNews);
+            
+            function filterNews() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categoryFilter.value;
+                
+                newsCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const category = card.querySelector('.news-category').textContent.toLowerCase();
+                    
+                    const matchesSearch = title.includes(searchTerm);
+                    const matchesCategory = selectedCategory === 'all' || category.includes(selectedCategory);
+                    
+                    if (matchesSearch && matchesCategory) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
