@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin - Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .login-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .btn-login {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-login:hover {
+            background-color: #2980b9;
+        }
+        
+        .error-message {
+            color: var(--danger);
+            text-align: center;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .back-to-site {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .back-to-site a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        .back-to-site a:hover {
+            text-decoration: underline;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .loading:after {
+            content: " ...";
+            animation: dots 1.5s steps(5, end) infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: " ."; }
+            40% { content: " .."; }
+            60%, 100% { content: " ..."; }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login Admin</h2>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-login" id="loginButton">
+                    <span id="loginText">Login</span>
+                    <span class="loading" id="loadingSpinner"></span>
+                </button>
+            </form>
+            <div class="error-message" id="errorMessage">
+                Username atau password salah!
+            <div class="back-to-site">
+                <a href="index.html"><i class="fas fa-arrow-left"></i> Kembali ke Situs</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tambahkan di bagian script login page -->
+<script>
+    // Cek apakah user sudah login
+    const token = localStorage.getItem('token');
+    if (token) {
+        // Jika sudah login, redirect ke dashboard
+        window.location.href = 'dashboard.html';
+    }
+
+    document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const loginButton = document.getElementById('loginButton');
+        const loginText = document.getElementById('loginText');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        // Reset error message
+        errorMessage.style.display = 'none';
+        
+        // Validasi input
+        if (!username.trim() || !password.trim()) {
+            errorMessage.textContent = 'Username dan password harus diisi!';
+            errorMessage.style.display = 'block';
+            return;
+        }
+        
+        // Tampilkan loading
+        loginButton.disabled = true;
+        loginText.style.display = 'none';
+        loadingSpinner.style.display = 'inline';
+        
+        // Kirim data ke backend
+                fetch('http://localhost:8080/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.message || 'Login gagal');
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                // Simpan token dan user data
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
+                
+                // Redirect ke dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                throw new Error(data.message || 'Login gagal');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            errorMessage.textContent = error.message || 'Username atau password salah!';
+            errorMessage.style.display = 'block';
+            
+            // Reset form
+            loginButton.disabled = false;
+            loginText.style.display = 'inline';
+            loadingSpinner.style.display = 'none';
+            
+            // Sembunyikan error setelah 5 detik
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        });
+    });
+</script>
+</body>
+</html>

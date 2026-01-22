@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Guru - Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .admin-dashboard {
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        
+        .admin-header {
+            background-color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .admin-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .admin-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .admin-logo h1 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .admin-logout {
+            background-color: var(--danger);
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .admin-logout:hover {
+            background-color: #c0392b;
+        }
+        
+        .admin-main {
+            display: flex;
+            min-height: calc(100vh - 70px);
+        }
+        
+        .admin-sidebar {
+            width: 250px;
+            background-color: white;
+            padding: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .admin-menu {
+            list-style: none;
+        }
+        
+        .admin-menu li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .admin-menu a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        .admin-menu a:hover,
+        .admin-menu a.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .admin-content {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .admin-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .admin-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #27ae60;
+        }
+        
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+        
+        .btn-warning {
+            background-color: var(--warning);
+            color: white;
+        }
+        
+        .btn-warning:hover {
+            background-color: #e67e22;
+        }
+        
+        .guru-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        
+        .guru-table th,
+        .guru-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .guru-table th {
+            background-color: var(--light);
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .guru-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .table-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .search-container {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .search-container input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .search-container button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.5rem;
+        }
+        
+        .pagination a {
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            color: var(--dark);
+        }
+        
+        .pagination a.active {
+            background-color: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .guru-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .guru-info img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .loading:after {
+            content: " ...";
+            animation: dots 1.5s steps(5, end) infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: " ."; }
+            40% { content: " .."; }
+            60%, 100% { content: " ..."; }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <header class="admin-header">
+            <div class="container">
+                <nav class="admin-nav">
+                    <div class="admin-logo">
+                        <img src="images\logo MA yatashi blue.jpg" alt="Logo">
+                        <h1>Dashboard Admin</h1>
+                    </div>
+                    <div class="admin-user">
+                        <span>Admin</span>
+                        <a href="logout.html" class="admin-logout">Logout</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        
+        <div class="admin-main">
+            <aside class="admin-sidebar">
+                <ul class="admin-menu">
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="berita-crud.html"><i class="fas fa-newspaper"></i> Berita</a></li>
+                    <li><a href="guru-crud.html" class="active"><i class="fas fa-chalkboard-teacher"></i> Guru</a></li>
+                    <li><a href="#"><i class="fas fa-images"></i> Galeri</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Siswa</a></li>
+                    <li><a href="#"><i class="fas fa-calendar"></i> Jadwal</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Statistik</a></li>
+                </ul>
+            </aside>
+            
+            <main class="admin-content">
+                <div class="admin-section">
+                    <h2>Manajemen Guru</h2>
+                    
+                    <div class="search-container">
+                        <input type="text" id="guru-search" placeholder="Cari guru...">
+                        <button onclick="searchGuru()"><i class="fas fa-search"></i> Cari</button>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button class="btn btn-primary" onclick="openAddGuruModal()"><i class="fas fa-plus"></i> Tambah Guru</button>
+                    </div>
+                    
+                    <div id="loading" class="loading">Memuat data guru</div>
+                    
+                    <table class="guru-table" id="guru-table" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nama</th>
+                                <th>Jabatan</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="guru-table-body">
+                        </tbody>
+                    </table>
+                    
+                    <div class="pagination" id="pagination" style="display: none;">
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- Add/Edit Guru Modal -->
+    <div id="guru-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeGuruModal()">&times;</span>
+            <h2 id="guru-modal-title">Tambah Guru Baru</h2>
+            <form id="guru-form">
+                <input type="hidden" id="guru-id">
+                <div class="guru-info">
+                    <img id="guru-image-preview" src="https://via.placeholder.com/80x80?text=Guru" alt="Foto Guru">
+                    <div>
+                        <div class="form-group">
+                            <label for="guru-image">URL Foto Guru</label>
+                            <input type="text" id="guru-image" placeholder="https://example.com/foto.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="guru-name">Nama Lengkap</label>
+                    <input type="text" id="guru-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="guru-position">Jabatan</label>
+                    <select id="guru-position" required>
+                        <option value="Kepala Madrasah">Kepala Madrasah</option>
+                        <option value="kurikulum madrasah">kurikulum madrasah</option>
+                        <option value="pembina OSIS">pembina OSIS</option>
+                        <option value="Guru Al-Qur'an Hadis">Guru Al-Qur'an Hadis</option>
+                        <option value="Guru Keterampilan">Guru Keterampilan</option>
+                        <option value="Guru Akademik">Guru Akademik</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="guru-subject">Mata Pelajaran</label>
+                    <select id="guru-subject" required>
+                        <option value="sejarah kebudayaan islam">sejarah kebudayaan islam</option>
+                        <option value="Al-Qur'an Hadis">Al-Qur'an Hadis</option>
+                        <option value="Akidah Akhlak">Akidah Akhlak</option>
+                        <option value="Fiqih">Fiqih</option>
+                        <option value="ilmu kalam">ilmu kalam</option>
+                        <option value="ilmu hadist">ilmu hadist</option>
+                        <option value="akhlak tasawuf">akhlak tasawuf</option>
+                        <option value="aqidah akhlak">aqidah akhlak</option>
+                        <option value="ilmu tafsir">ilmu tafsir</option>
+                        <option value="Tahfidz">Tahfidz</option>
+                        <option value="informatika">informatika</option>
+                        <option value="Bahasa sunda">bahasa sunda</option>
+                        <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                        <option value="Bahasa Inggris">Bahasa Inggris</option>
+                        <option value="Bahasa Arab">Bahasa Arab</option>
+                        <option value="Bahasa Prancis">Bahasa Prancis</option>
+                        <option value="Matematika">Matematika</option>
+                        <option value="Biologi">Biologi</option>
+                        <option value="Fisika">Fisika</option>
+                        <option value="Kimia">Kimia</option>
+                        <option value="Kimia">geografi</option>
+                        <option value="kewirawusahaan">kewirawusahaan</option>
+                        <option value="Sosiologi">Sosiologi</option>
+                        <option value="Ekonomi">Ekonomi</option>
+                        <option value="seni budaya">seni budaya</option>
+                        <option value="jasmani">jasmani</option>
+                        <option value="Sejarah">Sejarah</option>
+                        <option value="keguruan">keguruan</option>
+                        <option value="otomotif">otomotif</option>
+                        <option value="perkantoran">perkantoran</option>
+                        <option value="enterpeuner">enterpeuner</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="guru-email">Email</label>
+                    <input type="email" id="guru-email">
+                </div>
+                <div class="form-group">
+                    <label for="guru-phone">Nomor Telepon</label>
+                    <input type="tel" id="guru-phone">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger" onclick="closeGuruModal()">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        let guruData = [];
+        
+        // Ambil token dari localStorage
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+        
+        // Ambil data guru dari backend Node.js
+        function loadGuruData() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('guru-table').style.display = 'none';
+            document.getElementById('pagination').style.display = 'none';
+            
+            fetch('/api/guru', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    guruData = data;
+                    updateGuruTable();
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('guru-table').style.display = 'table';
+                    document.getElementById('pagination').style.display = 'flex';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('loading').innerHTML = 'Gagal memuat data guru';
+                });
+        }
+        
+        // Update tabel guru
+        function updateGuruTable() {
+            const tableBody = document.getElementById('guru-table-body');
+            tableBody.innerHTML = '';
+            
+            guruData.forEach(guru => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${guru.id}</td>
+                    <td>${guru.nama}</td>
+                    <td>${guru.jabatan}</td>
+                    <td>${guru.mapel}</td>
+                    <td>
+                        <div class="table-actions">
+                            <button class="btn btn-success" onclick="openEditGuruModal(${guru.id})"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-danger" onclick="deleteGuru(${guru.id})"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // Open add guru modal
+        function openAddGuruModal() {
+            document.getElementById('guru-modal-title').textContent = 'Tambah Guru Baru';
+            document.getElementById('guru-form').reset();
+            document.getElementById('guru-id').value = '';
+            document.getElementById('guru-image-preview').src = 'https://via.placeholder.com/80x80?text=Guru';
+            document.getElementById('guru-modal').style.display = 'block';
+        }
+        
+        // Open edit guru modal
+        function openEditGuruModal(id) {
+            const guru = guruData.find(g => g.id === id);
+            if (guru) {
+                document.getElementById('guru-modal-title').textContent = 'Edit Guru';
+                document.getElementById('guru-id').value = guru.id;
+                document.getElementById('guru-name').value = guru.nama;
+                document.getElementById('guru-position').value = guru.jabatan;
+                document.getElementById('guru-subject').value = guru.mapel;
+                document.getElementById('guru-email').value = guru.email;
+                document.getElementById('guru-phone').value = guru.no_telp;
+                document.getElementById('guru-image').value = guru.foto;
+                document.getElementById('guru-image-preview').src = guru.foto;
+                document.getElementById('guru-modal').style.display = 'block';
+            }
+        }
+        
+        // Close guru modal
+        function closeGuruModal() {
+            document.getElementById('guru-modal').style.display = 'none';
+        }
+        
+        // Save guru (add or update)
+        document.getElementById('guru-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const id = document.getElementById('guru-id').value;
+            const name = document.getElementById('guru-name').value;
+            const position = document.getElementById('guru-position').value;
+            const subject = document.getElementById('guru-subject').value;
+            const email = document.getElementById('guru-email').value;
+            const phone = document.getElementById('guru-phone').value;
+            const image = document.getElementById('guru-image').value || 'https://via.placeholder.com/200x200?text=Guru';
+            
+            const guruDataToSend = {
+                nama: name,
+                jabatan: position,
+                mapel: subject,
+                foto: image,
+                email: email,
+                no_telp: phone
+            };
+            
+            let url = '/api/guru';
+            let method = 'POST';
+            
+            if (id) {
+                url = `/api/guru/${id}`;
+                method = 'PUT';
+            }
+            
+            fetch(url, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(guruDataToSend)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert(data.message);
+                    closeGuruModal();
+                    loadGuruData(); // Refresh data
+                } else {
+                    alert('Gagal menyimpan data: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat menyimpan data');
+            });
+        });
+        
+        // Delete guru
+        function deleteGuru(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus guru ini?')) {
+                fetch(`/api/guru/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert(data.message);
+                        loadGuruData(); // Refresh data
+                    } else {
+                        alert('Gagal menghapus  ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Terjadi kesalahan saat menghapus data');
+                });
+            }
+        }
+        
+        // Search guru
+        function searchGuru() {
+            const searchTerm = document.getElementById('guru-search').value.toLowerCase();
+            const filteredGuru = guruData.filter(guru => 
+                guru.nama.toLowerCase().includes(searchTerm) || 
+                guru.mapel.toLowerCase().includes(searchTerm) ||
+                guru.jabatan.toLowerCase().includes(searchTerm)
+            );
+            
+            const tableBody = document.getElementById('guru-table-body');
+            tableBody.innerHTML = '';
+            
+            filteredGuru.forEach(guru => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${guru.id}</td>
+                    <td>${guru.nama}</td>
+                    <td>${guru.jabatan}</td>
+                    <td>${guru.mapel}</td>
+                    <td>
+                        <div class="table-actions">
+                            <button class="btn btn-success" onclick="openEditGuruModal(${guru.id})"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-danger" onclick="deleteGuru(${guru.id})"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+        
+        // Update image preview
+        document.getElementById('guru-image').addEventListener('input', function() {
+            const imgPreview = document.getElementById('guru-image-preview');
+            if (this.value) {
+                imgPreview.src = this.value;
+            } else {
+                imgPreview.src = 'https://via.placeholder.com/80x80?text=Guru';
+            }
+        });
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('guru-modal');
+            if (event.target === modal) {
+                closeGuruModal();
+            }
+        }
+        
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', loadGuruData);
+    </script>
+</body>
+</html>
