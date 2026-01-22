@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nama": "Drs. Ahmad Hidayat, M.Pd",
+    "jabatan": "Kepala Madrasah",
+    "mapel": "Pendidikan Agama Islam",
+    "foto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    "email": "ahmad.hidayat@tarbiyatushibyan.sch.id",
+    "no_telp": "(022) 12345678"
+  },
+  {
+    "id": 2,
+    "nama": "Dian Kartika, S.Pd",
+    "jabatan": "Guru PAI",
+    "mapel": "Pendidikan Agama Islam",
+    "foto": "https://images.unsplash.com/photo-1573496359142-b8d87734a5cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    "email": "dian.kartika@tarbiyatushibyan.sch.id",
+    "no_telp": "(022) 12345679"
+  }
+]

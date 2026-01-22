@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "judul": "MTQ Tingkat Kota, Siswa MA Tarbiyatushibyan Meraih Juara 1",
+    "tanggal": "2025-12-15",
+    "kategori": "prestasi",
+    "gambar": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+    "isi": "Siswa MA Tarbiyatushibyan meraih juara 1 dalam MTQ tingkat kota tahun 2025...",
+    "author": "Dian Kartika, S.Pd"
+  },
+  {
+    "id": 2,
+    "judul": "Penyerahan Sertifikat Tahfidz 30 Juz",
+    "tanggal": "2025-12-10",
+    "kategori": "kegiatan",
+    "gambar": "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        "isi": "Sebanyak 15 siswa menerima sertifikat Tahfidz 30 Juz dari Kementerian Agama...",
+        "author": "Ahmad Hiday"
+      }
+    ]
