@@ -26,8 +26,8 @@
                     <li><a href="berita.html" class="active">Berita</a></li>
                     <li><a href="galeri.html">Galeri</a></li>
                     <li><a href="guru.html">Guru</a></li>
+                    <li><a href="ekskul.html">Ekskul</a></li>
                     <li><a href="kontak.html">Kontak</a></li>
-                    <li><a href="admin/login.html">Admin</a></li>
                 </ul>
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
@@ -64,80 +64,9 @@
                 </div>
             </div>
             
-            <div class="news-grid" id="news-container">
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lomba MTQ">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-category">Prestasi</div>
-                        <div class="news-date">15 Desember 2025</div>
-                        <h3>MTQ Tingkat Kota, Siswa MA Tarbiyatushibyan Meraih Juara 1</h3>
-                        <p>Siswa MA Tarbiyatushibyan meraih juara 1 dalam MTQ tingkat kota tahun 2025...</p>
-                        <a href="berita-detail.html?id=1" class="btn">Baca Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tahfidz">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-category">Kegiatan</div>
-                        <div class="news-date">10 Desember 2025</div>
-                        <h3>Penyerahan Sertifikat Tahfidz 30 Juz</h3>
-                        <p>Sebanyak 15 siswa menerima sertifikat Tahfidz 30 Juz dari Kementerian Agama...</p>
-                        <a href="berita-detail.html?id=2" class="btn">Baca Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Keterampilan">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-category">Keterampilan</div>
-                        <div class="news-date">5 Desember 2025</div>
-                        <h3>PKL keguruan, perkantoran,enterpeuner,otomotif untuk Siswa Kelas XI</h3>
-                        <p>Kelas XI mengikuti PKL sebagai bagian dari program keterampilan...</p>
-                        <a href="berita-detail.html?id=3" class="btn">Baca Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wisuda">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-category">Event</div>
-                        <div class="news-date">28 November 2025</div>
-                        <h3>Wisuda Angkatan XVIII Tahun Pelajaran 2024/2025</h3>
-                        <p>MA Tarbiyatushibyan menyelenggarakan wisuda bagi 180 alumni tahun ini...</p>
-                        <a href="berita-detail.html?id=4" class="btn">Baca Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Olimpiade">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-category">Prestasi</div>
-                        <div class="news-date">20 November 2025</div>
-                        <h3>OSN Bidang Matematika, Siswa MA Tarbiyatushibyan Meraih Medali Perak</h3>
-                        <p>Siswa kelas XII meraih medali perak dalam Olimpiade Sains Nasional bidang matematika...</p>
-                        <a href="berita-detail.html?id=5" class="btn">Baca Selengkapnya</a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="https://images.unsplash.com/photo-1521644762404-a47d0a7e7f1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pembelajaran">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-category">Akademik</div>
-                        <div class="news-date">15 November 2025</div>
-                        <h3>Pembelajaran Berbasis Proyek untuk Meningkatkan Keterampilan Abad 21</h3>
-                        <p>MA Tarbiyatushibyan menerapkan metode pembelajaran berbasis proyek...</p>
-                        <a href="berita-detail.html?id=6" class="btn">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
+            <p id="news-loading" style="text-align:center;">Memuat berita...</p>
+            <p id="news-empty" style="text-align:center; display:none;">Belum ada berita.</p>
+            <div class="news-grid" id="news-container"></div>
             
             <div class="pagination">
                 <a href="#" class="prev">« Sebelumnya</a>
@@ -191,33 +120,113 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Simple search and filter functionality
         document.addEventListener('DOMContentLoaded', function() {
+            // Ngopi dulu, baru baca berita
             const searchInput = document.getElementById('news-search');
             const categoryFilter = document.getElementById('category-filter');
-            const newsCards = document.querySelectorAll('.news-card');
-            
-            searchInput.addEventListener('input', filterNews);
-            categoryFilter.addEventListener('change', filterNews);
-            
-            function filterNews() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const selectedCategory = categoryFilter.value;
-                
-                newsCards.forEach(card => {
-                    const title = card.querySelector('h3').textContent.toLowerCase();
-                    const category = card.querySelector('.news-category').textContent.toLowerCase();
-                    
-                    const matchesSearch = title.includes(searchTerm);
-                    const matchesCategory = selectedCategory === 'all' || category.includes(selectedCategory);
-                    
-                    if (matchesSearch && matchesCategory) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
+            const newsContainer = document.getElementById('news-container');
+            const loadingEl = document.getElementById('news-loading');
+            const emptyEl = document.getElementById('news-empty');
+            let newsData = [];
+
+            searchInput.addEventListener('input', applyNewsFilters);
+            categoryFilter.addEventListener('change', applyNewsFilters);
+
+            function formatCategory(category) {
+                // Biar kategori nggak bingung sendiri
+                const categories = {
+                    akademik: 'Akademik',
+                    ekskul: 'Ekskul',
+                    prestasi: 'Prestasi',
+                    event: 'Event',
+                    keterampilan: 'Keterampilan',
+                    kegiatan: 'Kegiatan'
+                };
+                return categories[category] || category || 'Berita';
+            }
+
+            function formatDate(dateString) {
+                // Rapihin tanggal biar cakep
+                if (!dateString) return '';
+                const parsed = new Date(dateString);
+                if (Number.isNaN(parsed.getTime())) return dateString;
+                return parsed.toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
                 });
             }
+
+            function truncate(text, limit = 120) {
+                // Kepanjangan? dipotong manis
+                if (!text) return '';
+                return text.length > limit ? `${text.slice(0, limit)}...` : text;
+            }
+
+            function renderNews(list) {
+                // Bersih-bersih feed dulu
+                newsContainer.innerHTML = '';
+
+                if (!list.length) {
+                    emptyEl.style.display = 'block';
+                    return;
+                }
+
+                emptyEl.style.display = 'none';
+
+                list.forEach(news => {
+                    const card = document.createElement('div');
+                    card.className = 'news-card';
+                    card.innerHTML = `
+                        <div class="news-img">
+                            <img src="${news.gambar || 'https://via.placeholder.com/600x400?text=Berita'}" alt="${news.judul || 'Berita'}">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-category">${formatCategory(news.kategori)}</div>
+                            <div class="news-date">${formatDate(news.tanggal)}</div>
+                            <h3>${news.judul || 'Judul Berita'}</h3>
+                            <p>${truncate(news.isi)}</p>
+                            <a href="berita-detail.html?id=${news.id}" class="btn">Baca Selengkapnya</a>
+                        </div>
+                    `;
+                    newsContainer.appendChild(card);
+                });
+            }
+
+            function applyNewsFilters() {
+                // Saring berita, jangan baper
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategory = categoryFilter.value;
+
+                const filtered = newsData.filter(news => {
+                    const title = (news.judul || '').toLowerCase();
+                    const category = (news.kategori || '').toLowerCase();
+                    const matchesSearch = title.includes(searchTerm);
+                    const matchesCategory = selectedCategory === 'all' || category === selectedCategory;
+                    return matchesSearch && matchesCategory;
+                });
+
+                renderNews(filtered);
+            }
+
+            function loadNews() {
+                // Tarik data dari server, semoga lancar
+                loadingEl.style.display = 'block';
+                emptyEl.style.display = 'none';
+
+                fetch('/api/berita')
+                    .then(response => response.json())
+                    .then(data => {
+                        newsData = Array.isArray(data) ? data : [];
+                        loadingEl.style.display = 'none';
+                        applyNewsFilters();
+                    })
+                    .catch(() => {
+                        loadingEl.textContent = 'Gagal memuat berita.';
+                    });
+            }
+
+            loadNews();
         });
     </script>
 </body>

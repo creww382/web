@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ekstrakurikuler - Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan</title>
+	<link rel="stylesheet" href="/style/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<!-- Header -->
+	<header>
+		<div class="container">
+			<nav class="navbar">
+				<div class="logo">
+					<img src="images\logo MA yatashi blue.jpg" alt="Logo Madrasah">
+					<div class="logo-text">
+						<h1>Madrasah Aliyah</h1>
+						<h2>Tarbiyatushibyan Plus Keterampilan</h2>
+					</div>
+				</div>
+				<ul class="nav-links">
+					<li><a href="index.html">Beranda</a></li>
+					<li><a href="profil.html">Profil</a></li>
+					<li><a href="berita.html">Berita</a></li>
+					<li><a href="galeri.html">Galeri</a></li>
+					<li><a href="guru.html">Guru</a></li>
+					<li><a href="ekskul.html" class="active">Ekskul</a></li>
+					<li><a href="kontak.html">Kontak</a></li>
+					<li><a href="keterampilan.html">keterampilan</a></li>
+				</ul>
+				<div class="hamburger">
+					<i class="fas fa-bars"></i>
+				</div>
+			</nav>
+		</div>
+	</header>
+
+	<!-- Page Title -->
+	<section class="page-title">
+		<div class="container">
+			<h1>Ekstrakurikuler</h1>
+			<p>Kegiatan ekstrakurikuler untuk pengembangan minat dan bakat siswa</p>
+		</div>
+	</section>
+
+	<!-- Ekskul Section -->
+	<section class="programs">
+		<div class="container">
+			<div class="section-title">
+				<h2>Daftar Ekstrakurikuler</h2>
+				<p>Program ekstrakurikuler yang tersedia di madrasah</p>
+			</div>
+			<p id="ekskul-loading" style="text-align:center;">Memuat data ekstrakurikuler...</p>
+			<p id="ekskul-empty" style="text-align:center; display:none;">Belum ada data ekstrakurikuler.</p>
+			<div class="programs-grid" id="ekskul-container"></div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<div class="footer-content">
+				<div class="footer-column">
+					<h3>Tentang Kami</h3>
+					<p>Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan berkomitmen memberikan pendidikan berbasis keislaman dan keterampilan untuk membentuk generasi Qur'ani dan terampil.</p>
+					<div class="social-links">
+						<a href="https://www.facebook.com/ma.yatashi"><i class="fab fa-facebook-f"></i></a>
+						<a href="#"><i class="fab fa-twitter"></i></a>
+						<a href="#"><i class="fab fa-instagram"></i></a>
+						<a href="#"><i class="fab fa-youtube"></i></a>
+					</div>
+				</div>
+				<div class="footer-column">
+					<h3>Tautan Cepat</h3>
+					<ul class="footer-links">
+						<li><a href="index.html">Beranda</a></li>
+						<li><a href="profil.html">Profil Madrasah</a></li>
+						<li><a href="berita.html">Berita</a></li>
+						<li><a href="galeri.html">Galeri</a></li>
+						<li><a href="guru.html">Guru & Staff</a></li>
+						<li><a href="kontak.html">Kontak</a></li>
+					</ul>
+				</div>
+				<div class="footer-column">
+					<h3>Informasi Kontak</h3>
+					<p><i class="fas fa-map-marker-alt"></i> Jl. Pendidikan Islam No. 45, Bandung</p>
+					<p><i class="fas fa-phone"></i> (022) 12345678</p>
+					<p><i class="fas fa-envelope"></i> info@tarbiyatushibyan.sch.id</p>
+					<p><i class="fas fa-clock"></i> Senin - Jumat: 07:00 - 16:00</p>
+				</div>
+			</div>
+			<div class="copyright">
+				<p>&copy; 2025 Madrasah Aliyah Tarbiyatushibyan Plus Keterampilan. Hak Cipta Dilindungi.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="js/main.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// Ngopi dulu, baru lihat ekskul
+			const container = document.getElementById('ekskul-container');
+			const loadingEl = document.getElementById('ekskul-loading');
+			const emptyEl = document.getElementById('ekskul-empty');
+
+			function renderEkskul(list) {
+				// Bersihin kontainer biar rapi
+				container.innerHTML = '';
+
+				if (!list.length) {
+					emptyEl.style.display = 'block';
+					return;
+				}
+
+				emptyEl.style.display = 'none';
+
+				list.forEach(item => {
+					const card = document.createElement('div');
+					card.className = 'program-card';
+					card.innerHTML = `
+						<div class="program-image">
+							<img src="${item.foto || 'https://via.placeholder.com/400x250?text=Ekskul'}" alt="${item.nama_ekskul || 'Ekskul'}">
+						</div>
+						<h3>${item.nama_ekskul || 'Ekstrakurikuler'}</h3>
+						<p>${item.deskripsi || ''}</p>
+						<p><strong>Pembimbing:</strong> ${item.pembimbing || '-'}</p>
+						<p><strong>Jadwal:</strong> ${item.jadwal || '-'}</p>
+					`;
+					container.appendChild(card);
+				});
+			}
+
+			function loadEkskul() {
+				// Tarik data ekskul, jangan timeout ya
+				loadingEl.style.display = 'block';
+				emptyEl.style.display = 'none';
+
+				fetch('/api/ekskul')
+					.then(response => response.json())
+					.then(data => {
+						const list = Array.isArray(data) ? data : [];
+						loadingEl.style.display = 'none';
+						renderEkskul(list);
+					})
+					.catch(() => {
+						loadingEl.textContent = 'Gagal memuat data ekstrakurikuler.';
+					});
+			}
+
+			loadEkskul();
+		});
+	</script>
+</body>
+</html>

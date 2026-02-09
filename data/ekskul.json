@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nama_ekskul": "Pramuka",
+    "deskripsi": "Melatih kedisiplinan, kepemimpinan, dan kerja sama tim melalui kegiatan kepramukaan.",
+    "pembimbing": "Kak Rudi Santoso",
+    "jadwal": "Jumat, 14:00 - 16:00",
+    "foto": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 2,
+    "nama_ekskul": "Tari Tradisional",
+    "deskripsi": "Mengembangkan kreativitas dan apresiasi budaya melalui latihan tari tradisional.",
+    "pembimbing": "Ibu Siti Nurjanah",
+    "jadwal": "Rabu, 15:00 - 17:00",
+    "foto": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 3,
+    "nama_ekskul": "Futsal",
+    "deskripsi": "Meningkatkan kebugaran jasmani dan sportivitas lewat latihan futsal rutin.",
+    "pembimbing": "Pak Deni Prasetyo",
+    "jadwal": "Selasa, 15:30 - 17:00",
+    "foto": "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=800&q=80"
+  }
+]
